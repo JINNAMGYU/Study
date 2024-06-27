@@ -5,7 +5,7 @@
 - 템플릿 : 제네릭 함수를 선언하고 컴파일 시간에 구체화 하기 위한 틀
 
 ```c++
-template <class T>
+template <class T> //템플릿
 void myswap(T &a,T &b){ // 제네릭 함수
     T tmp;
     tmp=a;
