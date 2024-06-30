@@ -26,7 +26,6 @@ bool isPrime(int n) { // 최적화
     if (n == 2) return true;   // 2는 유일한 짝수 소수
     if (n % 2 == 0) return false; // 2를 제외한 모든 짝수는 소수가 아님
 
-    // n/2까지 검사
     for (int i = 3; i <= n / 2; i += 2) { // 홀수만 검사, n/2 까지만
         if (n % i == 0)
             return false;
