@@ -23,17 +23,14 @@
 - 안정 정렬 - 동일한 값들이 입력 순서대로 유지
 
 ```c
-void bubbleSort(int arr[], int n) {
-    for (int i = 0; i < n-1; i++) {
-        for (int j = 0; j < n-i-1; j++) {
-            if (arr[j] > arr[j+1]) {
-                // 인접한 두 요소가 정렬되지 않은 경우 서로 교환
-                int temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-            }
-        }
-    }
+#define SWAP(x,y,t)((t)=(x),(x)=(y),(y)=(t))
+void bubbleSort(int list[], int n) {
+	int temp;
+	for (int i = n - 1; i > 0; i--) {
+		for (int j = 0; j < i; j++)
+			if (list[j] > list[j + 1]) // 앞 뒤 값을 비교하며 큰 값을 오른쪽 끝으로 이동시킴
+				SWAP(list[j], list[j + 1], temp);
+	}
 }
 ```
 
