@@ -1,4 +1,4 @@
-## 정렬 Sort - 버블, 선택, 삽입 정렬
+## 정렬 Sort - 버블, 선택, 삽입, 쉘
 
 ---
 
@@ -7,7 +7,7 @@
 1. 버블 정렬
 2. 선택 정렬
 3. 삽입 정렬
-
+4. 쉘 정렬
 ---
 
 ### 버블 정렬 Bubble Sort
@@ -96,4 +96,49 @@ void insertionSort(int arr[], int n) {
     }
 }
 ```
+### 쉘 정렬 Shell Sort
 
+1. 배열을 큰 간격으로 나누어 간격을 기준으로 선택 정렬
+2. 간격을 1/2씩 줄여가며 촘촘히 정렬
+
+- 삽입정렬의 활용이라 간단하고 직관적인 편
+- 자주 쓰는 정렬은 아닌데 중간 규모 배열에서 쓸만함
+
+```c
+// 간격을 두고 삽입 정렬을 수행하는 함수
+void incInsertionSort(int list[], int first, int last, int gap) {
+    int i, j, key;
+
+    // 첫 번째 원소 이후부터 gap 간격으로 순회
+    for (i = first + gap; i <= last; i = i + gap) {
+        key = list[i]; // 현재 정렬하려는 값을 key에 저장
+        // gap 간격으로 정렬된 부분 배열에서 key보다 큰 값을 뒤로 이동
+        for (j = i - gap; j >= first && key < list[j]; j = j - gap) {
+            list[j + gap] = list[j]; // 큰 값을 gap 간격 뒤로 이동
+        }
+        list[j + gap] = key; // key 값을 올바른 위치에 삽입
+    }
+}
+
+// 쉘 정렬 함수
+void shellSort(int list[], int n) {
+    int i, gap;
+
+    // 초기 gap을 n/2로 설정하고, 점진적으로 줄여가며 정렬
+    for (gap = n / 2; gap > 0; gap = gap / 2) {
+        // gap을 홀수로 하는게 더 좋음
+        if ((gap % 2) == 0) gap++;
+
+        // gap 간격으로 나눈 각 부분 배열에 대해 삽입 정렬 수행
+        for (i = 0; i < gap; i++) {
+            // i번째부터 시작하여 gap 간격으로 삽입 정렬
+            incInsertionSort(list, i, n - 1, gap);
+        }
+    }
+}
+
+```
+
+---
+
+### 
