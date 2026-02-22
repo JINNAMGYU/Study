@@ -2,7 +2,7 @@
 ---
 ### 배열 선언
 
-```
+```csharp
 int[] numbers1 = new int[5];  // {0,0,0,0,0}
 int[] numbers2 = {0,1,2,3,4};  // {0,1,2,3,4}
 
@@ -16,7 +16,7 @@ numbers[numbers.Length-1]) = numbers[^1]
 
 ### 다차원 배열
 
-```
+```csharp
 int[,] matrix = new int[2,3]; // 2행 3열
 
 int[,] matrix = {{1,2,3},{4,5,6}}; // 초기화
@@ -24,12 +24,12 @@ int[,] matrix = {{1,2,3},{4,5,6}}; // 초기화
 
 ### 가변 배열
 - 다차원배열과 달리 각 행의 열 개수가 다를 수 있음
-```
+```csharp
 int[][] jaggedArray = [[1,2],[3,4,5],[6,7,8,9]];
 ```
 
 ### Array 클래스 매서드
 * Array.Sort() : 오름차순 정렬
-* Array.reverse() : 순서 뒤집기
+* Array.Reverse() : 순서 뒤집기
 * Array.IndexOf(array, value) : value의 인덱스를 찾음
 * Array.Resize(ref array, size) : 배열의 크기를 size로 조정
