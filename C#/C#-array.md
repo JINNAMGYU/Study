@@ -29,7 +29,7 @@ int[][] jaggedArray = [[1,2],[3,4,5],[6,7,8,9]];
 ```
 
 ### Array 클래스 매서드
-Array.Sort() : 오름차순 정렬
-Array.reverse() : 순서 뒤집기
-Array.IndexOf(array, value) : value의 인덱스를 찾음
-Array.Resize(ref array, size) : 배열의 크기를 size로 조정
+* Array.Sort() : 오름차순 정렬
+* Array.reverse() : 순서 뒤집기
+* Array.IndexOf(array, value) : value의 인덱스를 찾음
+* Array.Resize(ref array, size) : 배열의 크기를 size로 조정
