@@ -37,6 +37,6 @@ int length = s1.Length; // 문자열 길이
 string part = s1.Substring(0,5); //0번에서 5번인덱스 까지만 추출
 ```
 ```csharp
-int length = s1.Length; // 문자열 길이
+bool check = s1.Contains("hi"); // 문자열 포함여부 확인
 ```
 등등 많음...
