@@ -35,7 +35,7 @@ void Test(ref string a){
   a="b";
 }
 string a="a";
-Test(ref a);  // ref로 인해 메서드 내 a,원래 a 둘 다 "b"로 할당
+Test(ref a);  // ref로 인해 메서드 내 a,원래 a 둘 다 "b"로 변경됨
 ```
 ### out
 ref와 비슷하나, out으로 받은 변수는 초기값이 필요없고 메서드 내에서 반드시 할당되어야 함
