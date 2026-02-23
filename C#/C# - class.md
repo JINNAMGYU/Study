@@ -35,24 +35,29 @@ void Test(ref string a){
   a="b";
 }
 string a="a";
-Test(ref a);  // ref로 인해 메서드 내 a,원래 a 둘 다 바뀜
+Test(ref a);  // ref로 인해 메서드 내 a,원래 a 둘 다 "b"로 할당
 ```
- ### out
-ref와 비슷하나 out으로 받은 변수는 메서드 내에서 반드시 할당되어야 함 -> 미리 선언,초기화 필효x
+### out
+ref와 비슷하나, out으로 받은 변수는 초기값이 필요없고 메서드 내에서 반드시 할당되어야 함
+
 ```csharp
 void Test(out string a){
-  a="b";
+  a="b";  // 반드시 할당 필요
 }
-Test(out string a);
-```
 
+string result;
+Test(out result);  // result = "b"
+
+// C# 7.0 이상 (인라인 선언)
+Test(out string result2);
+```
  ### 프로퍼티
  필드 값을 안전하게 읽고 수정할 수 있음. 필요에 따라 추가 로직 포함 가능
 ```csharp
 public class Person
 {
   private string name; // 필드
-  public string Name;
+  public string Name
   {
     get {return name;}  // 속성 값을 반환
     set {name = value;} // 속성 값을 설정
