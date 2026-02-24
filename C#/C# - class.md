@@ -75,9 +75,76 @@ public class Person
   public string Name { get; set;} // 자동 구현 버전, 컴파일러가 백업 필드를 자동으로 생성함
 }
 ```
+### 정적 타입
+static으로 선언된 메서드, 필드, 프로퍼티 등은 클래스 자체에 속함 => 인스턴스 없이 호출 가능
+```csharp
+class MyClass{
+  public static string name = "hi";
+  public static void Print(){ Console.WriteLine(name);}
+}
 
+MyClass.print();
+```
+정적 메서드는 정적 멤버에만 접근 가능
 
+- 정적 클래스 : 인스턴스를 생성할 수 없으며 모든 멤버가 static
+```csharp
+static class MyClass{
+  public static string name = "hi";
+  public static void Print(){ Console.WriteLine(name);}
+}
+```
 
+### 확장 함수
+```csharp
+strint name = "john";
+name.Print(); // 이런 함수는 원래 없음
 
+static class MyClass{
+  public staic void Print(this string text){
+    Console.WriteLine(text);
+  }
+} // 이를 통해 name.Print()가 활성화 됨. ( MyClass.Print(name)도 됨 )
+```
 
+### 상속
+```csharp
+class Animal{ //부모클래스
+  public void Eat();
+}
+class Dog : Animal{ //자식클래스, Animal의 멤버들을 상속받아서 Dog가 다 사용할 수 있음
+ public void Bark();
+}
+```
+```csharp
+// override,new
+
+class Animal{
+  public virtual void Eat();
+}
+class Dog : Animal{ 
+ public override void Eat(){ ... }; //override를 통해 부모의 메서드를 재정의해서 사용
+}
+
+class Cat : Animal{
+ public new void Eat(){ ... }; //new를 통해 부모의 메서드를 숨기고 자식의 메서드를 사용
+}
+
+Animal dog = new Dog(); // override - 업캐스팅된 인스턴스에서 Eat() 호출 시 Dog의 Eat() 호출됨
+Animal cat = new Cat(); // new - 업캐스팅된 인스턴스에서 Eat() 호출 시 Animal의 Eat() 호출됨
+```
+
+### 추상클래스
+추상 클래스는 인스턴스화 불가능, 추상메서드를 가지고 있어 자식클래스에서 추상메서드가 구현되어야 함
+```csharp
+abstract class Shape{
+ public abstract void Draw();
+}
+class Circle : Shape{
+ public override void Draw(){ ...; }
+}
+```
+
+### sealed
+sealed 키워드로 선언한 클래스, 메서드는 더이상 상속, 재정의 불가능
 
