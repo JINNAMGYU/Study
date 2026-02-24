@@ -63,14 +63,18 @@ public class Person
     set {name = value;} // 속성 값을 설정
   }
 }
+
+//추가 로직 구현 예시
+get{ return $"**{name}**";}
+set{ name = $"##{value}##";}
 ```
+- 자동 구현 프로퍼티
 ```csharp
 public class Person
 {
   public string Name { get; set;} // 자동 구현 버전, 컴파일러가 백업 필드를 자동으로 생성함
 }
-```  
-
+```
 
 
 
