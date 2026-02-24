@@ -101,12 +101,12 @@ strint name = "john";
 name.Print(); // 이런 함수는 원래 없음
 
 static class MyClass{
-  public staic void Print(this string text){
+  public static void Print(this string text){
     Console.WriteLine(text);
   }
 } // 이를 통해 name.Print()가 활성화 됨. ( MyClass.Print(name)도 됨 )
 ```
-
+확장함수는 담긴 클래스, 함수 자신 모두 static이여야만 함
 ### 상속
 ```csharp
 class Animal{ //부모클래스
@@ -120,7 +120,7 @@ class Dog : Animal{ //자식클래스, Animal의 멤버들을 상속받아서 Do
 // override,new
 
 class Animal{
-  public virtual void Eat();
+  public virtual void Eat(){...};
 }
 class Dog : Animal{ 
  public override void Eat(){ ... }; //override를 통해 부모의 메서드를 재정의해서 사용
