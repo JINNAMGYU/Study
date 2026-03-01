@@ -70,7 +70,8 @@ void Calcuate_OnValueChanged(int result, string message){
 calcuate.Plus(2); // 이벤트에 참조된 메서드 호출됨
 calcuate.Plus(4);
 ```
-
+- 이벤트 특징
+외부에서는 +=, -= 만 가능, 직접 호출 불가, 클래스 내부에서만 invoke -> 캡슐화, 안정성
 ### 매개변수 ###
 대리자를 매개변수로 활용 가능함
 ```csharp
@@ -121,9 +122,18 @@ int Compare(int x, int y){
 }
 Comparison<int> comparison = Compare;
 ```
+### 람다 표현식 ###
+매개변수를 받아 특정 작업을 수행하는 익명함수를 정의
+-> 간단하게 함수를 작성하여 가독성, 간결성 굳
 
+(매개변수) => {표현식}
+```csharp
+Func<int,int,int> operation = (a, b) => {return a+b;};
+// Func<int,int,int> operation = (a, b) => a+b;
+Action<int,int> operation = (a,b) => {Console.WriteLine(a+b);};
+// Action<int,int> operation = (a,b) => Console.WriteLine(a+b);
 
-
+- 사전 정의 대리자 + 람다가 많이 사용됨
 
 
 
