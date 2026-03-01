@@ -132,14 +132,5 @@ Func<int,int,int> operation = (a, b) => {return a+b;};
 // Func<int,int,int> operation = (a, b) => a+b;
 Action<int,int> operation = (a,b) => {Console.WriteLine(a+b);};
 // Action<int,int> operation = (a,b) => Console.WriteLine(a+b);
-
+```
 - 사전 정의 대리자 + 람다가 많이 사용됨
-
-
-
-
-
-
-
-
-
