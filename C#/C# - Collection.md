@@ -4,6 +4,7 @@
 - 자동으로 크기를 조정하는 배열
 ```csharp
 var stringList = new List<string>();
+var stringList = new List<string>(1000); // 미리 메모리 할당 -> 최적화
 stringList.Add("a");
 stringList.Add("b");
 stringList.Add("c"); // 요소 추가
@@ -41,6 +42,8 @@ int[] ints = intList.ToArray();
 key와 value를 데이터쌍으로 저장하는 제네릭 컬렉션
 ```csharp
 var fruitDict = new Dictionary<string,string>(); // 생성
+var fruitDict = new Dictionary<string,string>(1000); // 미리 메모리 최적화
+
 fruitDict.Add("apple", "사과"); // 요소 추가(이미 같은 key가 있으면 오류)
 fruitDict["apple"] = "애플"; // 요소 추가(이미 같은 key가 있으면 덮어씀)
 
