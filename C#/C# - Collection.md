@@ -32,7 +32,8 @@ List<string> selectedStrings = stringList.FindAll(str=>{return str.StartsWith("a
 var intList = new List<int> { 3, 100 , 5, -1, 20};
 intList.Reverse(); // 역순으로 -> 20,-1,5,100,3
 intList.Sort(); // 기본정렬(오름차순)
-intList.Sort((a,b)=>a.CompareTo(b)); // 커스텀 정렬
+intList.Sort((a,b)=>a.CompareTo(b)); // 커스텀 정렬(오름차순)
+intList.Sort((a,b)=>b.CompareTo(c)); // 커스텀 정렬(내림차순)
 
 int count = intList.Count; // 요소의 개수
 int[] ints = intList.ToArray();
